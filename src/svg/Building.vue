@@ -19,10 +19,6 @@ import Roof from './floors/4_Roof.vue'
 </template>
 
 <style>
-.cls-1, .cls-2, .cls-3, .cls-4 {
-    stroke-width: 0px;
-}
-
 .cls-2 {
     fill: #f3f4ef;
 }
