@@ -1,5 +1,5 @@
 <script setup>
-import state from "../state";
+import { state, toggle } from "../store";
 </script>
 
 <template>
@@ -11,7 +11,7 @@ import state from "../state";
                 transform: floor.transform,
                 transition: 'transform 2s',
             }"
-            @click="state.openFloor = index"
+            @click="toggle(index)"
         />
     </svg>
 </template>

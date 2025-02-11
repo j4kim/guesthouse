@@ -5,7 +5,7 @@ import Second from "./svg/floors/2_Second.vue";
 import Third from "./svg/floors/3_Third.vue";
 import Roof from "./svg/floors/4_Roof.vue";
 
-const state = reactive({
+export const state = reactive({
     floors: [
         {
             transform: "",
@@ -31,20 +31,24 @@ const state = reactive({
     openFloor: null,
 });
 
-watch(
-    () => state.openFloor,
-    (value) => {
-        state.floors.forEach((floor, index) => {
-            console.log("open floor", value)
-            if (index < value) {
-                floor.transform = "translateY(1000px)";
-            } else if (index === value) {
-                floor.transform = "";
-            } else {
-                floor.transform = "translateY(-1000px)";
-            }
-        });
-    }
-);
+export function open(floorIndex) {
+    state.openFloor = floorIndex;
+    state.floors.forEach((floor, index) => {
+        if (index < floorIndex) {
+            floor.transform = "translateY(1500px)";
+        } else if (index === floorIndex) {
+            floor.transform = "";
+        } else {
+            floor.transform = "translateY(-1500px)";
+        }
+    });
+}
 
-export default state;
+export function close() {
+    state.openFloor = null;
+    state.floors.forEach((f) => (f.transform = ""));
+}
+
+export function toggle(floorIndex) {
+    state.openFloor === floorIndex ? close() : open(floorIndex);
+}
