@@ -7,7 +7,10 @@ import state from "../state";
         <component
             v-for="(floor, index) in state.floors"
             :is="floor.component"
-            :style="floor.style"
+            :style="{
+                transform: floor.transform,
+                transition: 'transform 2s',
+            }"
             @click="state.openFloor = index"
         />
     </svg>

@@ -8,23 +8,23 @@ import Roof from "./svg/floors/4_Roof.vue";
 const state = reactive({
     floors: [
         {
-            style: {},
+            transform: "",
             component: markRaw(Ground),
         },
         {
-            style: {},
+            transform: "",
             component: markRaw(First),
         },
         {
-            style: {},
+            transform: "",
             component: markRaw(Second),
         },
         {
-            style: {},
+            transform: "",
             component: markRaw(Third),
         },
         {
-            style: {},
+            transform: "",
             component: markRaw(Roof),
         },
     ],
@@ -34,7 +34,16 @@ const state = reactive({
 watch(
     () => state.openFloor,
     (value) => {
-        console.log("open floor", value);
+        state.floors.forEach((floor, index) => {
+            console.log("open floor", value)
+            if (index < value) {
+                floor.transform = "translateY(1000px)";
+            } else if (index === value) {
+                floor.transform = "";
+            } else {
+                floor.transform = "translateY(-1000px)";
+            }
+        });
     }
 );
 
