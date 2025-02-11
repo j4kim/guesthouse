@@ -6,36 +6,36 @@ import Third from "./svg/floors/3_Third.vue";
 import Roof from "./svg/floors/4_Roof.vue";
 
 const state = reactive({
-  floors: [
-    {
-      style: {},
-      component: markRaw(Ground),
-    },
-    {
-      style: {},
-      component: markRaw(First),
-    },
-    {
-      style: {},
-      component: markRaw(Second),
-    },
-    {
-      style: {},
-      component: markRaw(Third),
-    },
-    {
-      style: {},
-      component: markRaw(Roof),
-    },
-  ],
-  openFloor: null,
+    floors: [
+        {
+            style: {},
+            component: markRaw(Ground),
+        },
+        {
+            style: {},
+            component: markRaw(First),
+        },
+        {
+            style: {},
+            component: markRaw(Second),
+        },
+        {
+            style: {},
+            component: markRaw(Third),
+        },
+        {
+            style: {},
+            component: markRaw(Roof),
+        },
+    ],
+    openFloor: null,
 });
 
 watch(
-  () => state.openFloor,
-  (value) => {
-    console.log("open floor", value);
-  }
+    () => state.openFloor,
+    (value) => {
+        console.log("open floor", value);
+    }
 );
 
 export default state;
