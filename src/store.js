@@ -6,7 +6,8 @@ import Third from "./svg/floors/3_Third.vue";
 import Roof from "./svg/floors/4_Roof.vue";
 
 export const state = reactive({
-    transform: "",
+    scale: 1,
+    dy: 0,
 
     floors: [
         {
@@ -35,7 +36,8 @@ export const state = reactive({
 
 export function open(floorIndex) {
     state.openFloor = floorIndex;
-    state.transform = "scale(1.5)"
+    state.scale = 1.5;
+    state.dy = (floorIndex - 2) * 180;
     state.floors.forEach((floor, index) => {
         if (index < floorIndex) {
             floor.transform = "translateY(1500px)";
@@ -49,7 +51,8 @@ export function open(floorIndex) {
 
 export function close() {
     state.openFloor = null;
-    state.transform = ""
+    state.scale = 1;
+    state.dy = 0;
     state.floors.forEach((f) => (f.transform = ""));
 }
 

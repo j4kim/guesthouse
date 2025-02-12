@@ -4,7 +4,11 @@ import { state, toggle } from "../store";
 
 <template>
     <svg viewBox="0 0 2000 2000">
-        <g :style="{ transform: state.transform, transition: 'transform 1s', transformOrigin: 'center' }">
+        <g :style="{
+            transform: `scale(${state.scale}) translateY(${state.dy}px)`,
+            transition: 'transform 1s',
+            transformOrigin: 'center'
+        }">
             <component
                 v-for="(floor, index) in state.floors"
                 :is="floor.component"
@@ -19,6 +23,10 @@ import { state, toggle } from "../store";
 </template>
 
 <style>
+svg {
+    /* background-image: linear-gradient(45deg, #cbd3d6 50%, transparent 50%); */
+}
+
 .cls-2 {
     fill: #f3f4ef;
 }
