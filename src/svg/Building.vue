@@ -1,19 +1,19 @@
 <script setup>
-import { state, toggle } from "../store";
+import { floors, scale, translateY, toggle, deltas } from "../store";
 </script>
 
 <template>
     <svg viewBox="0 0 2000 2000">
         <g :style="{
-            transform: `scale(${state.scale}) translateY(${state.dy}px)`,
+            transform: `scale(${scale}) translateY(${translateY}px)`,
             transition: 'transform 1s',
             transformOrigin: 'center'
         }">
             <component
-                v-for="(floor, index) in state.floors"
+                v-for="(floor, index) in floors"
                 :is="floor.component"
                 :style="{
-                    transform: floor.transform,
+                    transform: `translateY(${deltas[index]}px)`,
                     transition: 'transform 1s',
                 }"
                 @click="toggle(index)"
