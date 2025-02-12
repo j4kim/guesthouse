@@ -1,11 +1,11 @@
 <script setup>
-import { floors, scale, translateY, openFloor, deltas } from "../store";
+import { floors, scale, translateY, openFloor, deltas, translateX } from "../store";
 </script>
 
 <template>
     <svg viewBox="0 0 2000 2000">
         <g :style="{
-            transform: `scale(${scale}) translateY(${translateY}px)`,
+            transform: `scale(${scale}) translate(${translateX}px, ${translateY}px)`,
             transition: 'transform 1s',
             transformOrigin: 'center'
         }">

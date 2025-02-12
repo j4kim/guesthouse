@@ -15,17 +15,44 @@ export const floors = [
 
 export const openFloor = ref(null);
 
-export const scale = computed(() => (openFloor.value === null ? 1 : 1.5));
+const roomTransform = {
+    101: { s: 3.5, dx: 0, dy: -400 },
+};
 
-export const translateY = computed(() =>
-    openFloor.value === null ? 0 : (openFloor.value - 2) * 180
-);
+export const room = ref(null);
+
+export const scale = computed(() => {
+    if (room.value) {
+        return roomTransform[room.value].s;
+    }
+    if (openFloor.value !== null) {
+        return 1.5;
+    }
+    return 1;
+});
+
+export const translateY = computed(() => {
+    if (room.value) {
+        return roomTransform[room.value].dy;
+    }
+    if (openFloor.value !== null) {
+        return (openFloor.value - 2) * 180;
+    }
+    return 0;
+});
+
+export const translateX = computed(() => {
+    if (room.value) {
+        return roomTransform[room.value].dx;
+    }
+    return 0;
+});
 
 function getDelta(index) {
     if (openFloor.value === null || index === openFloor.value) {
         return 0;
     }
-    return index < openFloor.value ? 1500 : -1500
+    return index < openFloor.value ? 1500 : -1500;
 }
 
 export const deltas = computed(() => floors.map((f, i) => getDelta(i)));
