@@ -4,15 +4,17 @@ import { state, toggle } from "../store";
 
 <template>
     <svg viewBox="0 0 2000 2000">
-        <component
-            v-for="(floor, index) in state.floors"
-            :is="floor.component"
-            :style="{
-                transform: floor.transform,
-                transition: 'transform 2s',
-            }"
-            @click="toggle(index)"
-        />
+        <g :style="{ transform: state.transform, transition: 'transform 1s', transformOrigin: 'center' }">
+            <component
+                v-for="(floor, index) in state.floors"
+                :is="floor.component"
+                :style="{
+                    transform: floor.transform,
+                    transition: 'transform 1s',
+                }"
+                @click="toggle(index)"
+            />
+        </g>
     </svg>
 </template>
 
