@@ -29,15 +29,3 @@ function getDelta(index) {
 }
 
 export const deltas = computed(() => floors.map((f, i) => getDelta(i)));
-
-export function open(floorIndex) {
-    openFloor.value = floorIndex;
-}
-
-export function close() {
-    openFloor.value = null;
-}
-
-export function toggle(floorIndex) {
-    openFloor.value === floorIndex ? close() : open(floorIndex);
-}

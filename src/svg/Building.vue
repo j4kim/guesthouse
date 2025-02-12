@@ -1,5 +1,5 @@
 <script setup>
-import { floors, scale, translateY, toggle, deltas } from "../store";
+import { floors, scale, translateY, openFloor, deltas } from "../store";
 </script>
 
 <template>
@@ -16,7 +16,7 @@ import { floors, scale, translateY, toggle, deltas } from "../store";
                     transform: `translateY(${deltas[index]}px)`,
                     transition: 'transform 1s',
                 }"
-                @click="toggle(index)"
+                @click="openFloor = index"
             />
         </g>
     </svg>
