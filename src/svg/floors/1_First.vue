@@ -38,7 +38,11 @@ import { openFloor, room } from "../../store";
             </g>
         </Transition>
         <g id="rooms">
-            <g id="room_103" :class="{ muted: room && room !== 103 }">
+            <g
+                id="room_103"
+                :class="{ muted: room && room !== 103 }"
+                @click="room = 103"
+            >
                 <g id="balcon">
                     <polygon
                         points="963.4 800 980.72 790 954.74 775 1006.7 745 1231.87 875 1179.9 905 1145.26 885 1127.94 895 1075.87 864.94 1093.3 855 1024.02 815 1006.7 825 963.4 800"
@@ -211,7 +215,11 @@ import { openFloor, room } from "../../store";
                     stroke-width=".75"
                 />
             </g>
-            <g id="room_102" :class="{ muted: room && room !== 102 }">
+            <g
+                id="room_102"
+                :class="{ muted: room && room !== 102 }"
+                @click="room = 102"
+            >
                 <polygon
                     points="764.21 1105 868.13 1045 772.87 990 703.59 1030 694.93 1025 694.93 1025 764.21 985 660.46 924.9 556.37 985 660.29 1045 651.63 1050 547.71 990 391.82 1080 599.67 1200 755.55 1110 703.59 1080 712.25 1075 764.21 1105"
                     fill="#e3f6c9"
@@ -262,7 +270,11 @@ import { openFloor, room } from "../../store";
                     stroke-width=".75"
                 />
             </g>
-            <g id="common" :class="{ muted: room && room !== 'common' }">
+            <g
+                id="common"
+                :class="{ muted: room && room !== 'common' }"
+                @click="room = 'common'"
+            >
                 <polygon
                     points="608.33 1085 608.33 1205 720.91 1140 720.91 1050 755.55 1030 755.55 1120 928.76 1020 928.76 899.76 608.33 1085"
                     fill="#ffe6d4"
@@ -407,7 +419,7 @@ import { openFloor, room } from "../../store";
                     />
                 </g>
             </g>
-            <g id="stairs" :class="{ muted: room && room !== 'stairs' }">
+            <g id="stairs" :class="{ muted: room }">
                 <polygon
                     points="1188.56 850.05 1119.28 890.05 1136.29 900.04 1102.13 920.15 1205.88 980.05 1240.53 960.05 1257.85 970.05 1327.13 930.05 1188.56 850.05"
                     fill="#ffdedd"
@@ -430,7 +442,11 @@ import { openFloor, room } from "../../store";
                     stroke-width=".75"
                 />
             </g>
-            <g id="room_104" :class="{ muted: room && room !== 104 }"  @click="room = 104">
+            <g
+                id="room_104"
+                :class="{ muted: room && room !== 104 }"
+                @click="room = 104"
+            >
                 <g id="balcon-2" data-name="balcon">
                     <polygon
                         points="1379.09 1040.01 1396.41 1030.01 1370.43 1015.01 1422.39 985.01 1647.56 1115.01 1595.6 1145.01 1560.95 1125.01 1543.63 1135.01 1491.56 1104.95 1508.99 1095.01 1439.71 1055.01 1422.39 1065.01 1379.09 1040.01"
@@ -529,7 +545,11 @@ import { openFloor, room } from "../../store";
                     stroke-width=".75"
                 />
             </g>
-            <g id="room_101_back" :class="{ muted: room && room !== 101 }" @click="room = 101">
+            <g
+                id="room_101_back"
+                :class="{ muted: room && room !== 101 }"
+                @click="room = 101"
+            >
                 <polygon
                     points="1058.66 1225 1153.92 1170 1275.17 1240 1179.9 1295 1058.66 1225"
                     fill="#e7bfd5"
@@ -591,7 +611,11 @@ import { openFloor, room } from "../../store";
                     />
                 </g>
             </g>
-            <g id="room_104_front" :class="{ muted: room && room !== 104 }"  @click="room = 104">
+            <g
+                id="room_104_front"
+                :class="{ muted: room && room !== 104 }"
+                @click="room = 104"
+            >
                 <polygon
                     points="1197.22 1295 1318.47 1225 1413.73 1280 1292.49 1350 1197.22 1295"
                     fill="#e7d2c4"
@@ -621,7 +645,11 @@ import { openFloor, room } from "../../store";
                     stroke-width=".75"
                 />
             </g>
-            <g id="room_101" :class="{ muted: room && room !== 101 }" @click="room = 101">
+            <g
+                id="room_101"
+                :class="{ muted: room && room !== 101 }"
+                @click="room = 101"
+            >
                 <polygon
                     points="781.53 1305 980.72 1190 1275.17 1360 1075.98 1475 868.29 1355.09 781.53 1305"
                     fill="#e7bfd5"
