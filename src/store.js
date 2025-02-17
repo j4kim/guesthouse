@@ -16,14 +16,15 @@ export const floors = [
 export const openFloor = ref(null);
 
 const roomTransform = {
-    101: { s: 3.7, dx: -30, dy: -400 },
+    101: { s: 3.5, dx: -30, dy: -380 },
+    104: { s: 3.5, dx: -390, dy: -240 },
 };
 
 export const room = ref(null);
 
 export const scale = computed(() => {
     if (room.value) {
-        return roomTransform[room.value].s;
+        return roomTransform[room.value]?.s;
     }
     if (openFloor.value !== null) {
         return 1.5;
@@ -33,7 +34,7 @@ export const scale = computed(() => {
 
 export const translateY = computed(() => {
     if (room.value) {
-        return roomTransform[room.value].dy;
+        return roomTransform[room.value]?.dy;
     }
     if (openFloor.value !== null) {
         return (openFloor.value - 2) * 180;
@@ -43,7 +44,7 @@ export const translateY = computed(() => {
 
 export const translateX = computed(() => {
     if (room.value) {
-        return roomTransform[room.value].dx;
+        return roomTransform[room.value]?.dx;
     }
     return 0;
 });
