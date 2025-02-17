@@ -16,7 +16,7 @@ export const floors = [
 export const openFloor = ref(null);
 
 const roomTransform = {
-    101: { s: 3.5, dx: 0, dy: -400 },
+    101: { s: 3.7, dx: -30, dy: -400 },
 };
 
 export const room = ref(null);
