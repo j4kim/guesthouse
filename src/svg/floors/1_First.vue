@@ -1129,6 +1129,30 @@ import Arrow from "../Arrow.vue";
                     Room 104 ⮕
                 </Arrow>
             </g>
+            <g v-else-if="room === 'common'">
+                <Arrow :x="710" :y="1290" @click="room = 101" north>
+                    Room 101 ⮕
+                </Arrow>
+                <Arrow :x="620" :y="1270" @click="room = 102" north>
+                    ⬅ Room 102
+                </Arrow>
+            </g>
+            <g v-else-if="room === 102">
+                <Arrow :x="500" :y="1180" @click="room = 'common'" north>
+                    Common kitchen ⮕
+                </Arrow>
+                <Arrow :x="590" :y="820" @click="room = 103" west>
+                    Room 103 ⮕
+                </Arrow>
+            </g>
+            <g v-else-if="room === 103">
+                <Arrow :x="1150" :y="740" @click="room = 104" north>
+                    Room 104 ⮕
+                </Arrow>
+                <Arrow :x="750" :y="720" @click="room = 102" west>
+                    ⬅ Room 102
+                </Arrow>
+            </g>
             <g v-else-if="room === 104">
                 <Arrow :x="1400" :y="1320" @click="room = 101" west>
                     ⬅ Room 101
