@@ -1,5 +1,6 @@
 <script setup>
 import { openFloor, room } from "../../store";
+import Arrow from "../Arrow.vue";
 </script>
 
 <template>
@@ -1117,6 +1118,13 @@ import { openFloor, room } from "../../store";
                         />
                     </g>
                 </g>
+            </g>
+        </Transition>
+        <Transition>
+            <g v-if="room === 101">
+                <Arrow :x="1290" :y="1470" @click="room = 'common'">
+                    ⬅ Common kitchen
+                </Arrow>
             </g>
         </Transition>
     </g>
