@@ -1141,15 +1141,15 @@ import Arrow from "../Arrow.vue";
                 <Arrow :x="500" :y="1180" @click="room = 'common'" north>
                     Common kitchen ⮕
                 </Arrow>
-                <Arrow :x="590" :y="820" @click="room = 103" west>
+                <Arrow :x="590" :y="820" @click="room = 103" west stand>
                     Room 103 ⮕
                 </Arrow>
             </g>
             <g v-else-if="room === 103">
-                <Arrow :x="1150" :y="740" @click="room = 104" north>
+                <Arrow :x="1150" :y="750" @click="room = 104" north stand>
                     Room 104 ⮕
                 </Arrow>
-                <Arrow :x="750" :y="720" @click="room = 102" west>
+                <Arrow :x="750" :y="730" @click="room = 102" west stand>
                     ⬅ Room 102
                 </Arrow>
             </g>
@@ -1157,7 +1157,7 @@ import Arrow from "../Arrow.vue";
                 <Arrow :x="1400" :y="1320" @click="room = 101" west>
                     ⬅ Room 101
                 </Arrow>
-                <Arrow :x="1450" :y="930" @click="room = 103" north>
+                <Arrow :x="1450" :y="930" @click="room = 103" north stand>
                     ⬅ Room 103
                 </Arrow>
             </g>

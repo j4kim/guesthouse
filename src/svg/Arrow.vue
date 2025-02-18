@@ -6,14 +6,19 @@ const props = defineProps({
     y: Number,
     north: Boolean,
     west: Boolean,
+    stand: Boolean,
 });
 
 const transform = computed(() => {
     if (props.west) {
-        return "rotate(-30deg) skewX(30deg)";
+        return props.stand
+            ? "rotate(-30deg) skewX(-30deg)"
+            : "rotate(-30deg) skewX(30deg)";
     }
     if (props.north) {
-        return "rotate(30deg) skewX(-30deg)";
+        return props.stand
+            ? "rotate(30deg) skewX(30deg)"
+            : "rotate(30deg) skewX(-30deg)";
     }
 });
 </script>
