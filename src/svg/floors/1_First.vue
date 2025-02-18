@@ -1122,8 +1122,11 @@ import Arrow from "../Arrow.vue";
         </Transition>
         <Transition>
             <g v-if="room === 101">
-                <Arrow :x="1290" :y="1470" @click="room = 'common'">
+                <Arrow :x="850" :y="1380" @click="room = 'common'" north>
                     ⬅ Common kitchen
+                </Arrow>
+                <Arrow :x="1230" :y="1420" @click="room = 104" west>
+                    Room 104 ⮕
                 </Arrow>
             </g>
         </Transition>

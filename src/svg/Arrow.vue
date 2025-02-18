@@ -1,22 +1,43 @@
 <script setup>
+import { computed } from "vue";
+
 const props = defineProps({
     x: Number,
     y: Number,
     north: Boolean,
     west: Boolean,
 });
+
+const transform = computed(() => {
+    if (props.west) {
+        return "rotate(-30deg) skewX(30deg)";
+    }
+    if (props.north) {
+        return "rotate(30deg) skewX(-30deg)";
+    }
+});
 </script>
 
 <template>
-    <text :x="x" :y="y"><slot></slot></text>
+    <text
+        :x="x"
+        :y="y"
+        :style="{
+            transform,
+            transformOrigin: `${x}px ${y}px`,
+        }"
+        ><slot></slot
+    ></text>
 </template>
 
 <style scoped>
 text {
     font-size: 18px;
-    transform-origin: center;
-    transform: rotate(60deg) skew(0deg, -30deg);
+    text-anchor: middle;
     font-family: sans-serif;
     cursor: pointer;
+}
+text:hover {
+    opacity: 0.6;
 }
 </style>
