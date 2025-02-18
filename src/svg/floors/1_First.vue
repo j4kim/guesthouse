@@ -1129,6 +1129,14 @@ import Arrow from "../Arrow.vue";
                     Room 104 ⮕
                 </Arrow>
             </g>
+            <g v-else-if="room === 104">
+                <Arrow :x="1400" :y="1320" @click="room = 101" west>
+                    ⬅ Room 101
+                </Arrow>
+                <Arrow :x="1450" :y="930" @click="room = 103" north>
+                    ⬅ Room 103
+                </Arrow>
+            </g>
         </Transition>
     </g>
 </template>
