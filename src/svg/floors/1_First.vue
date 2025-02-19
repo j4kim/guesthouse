@@ -882,6 +882,7 @@ import Room101Front from "./1/Room101Front.vue";
     opacity: 0;
 }
 .muted {
-    opacity: 0.2;
+    opacity: 0;
+    pointer-events: none;
 }
 </style>
