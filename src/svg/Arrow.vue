@@ -39,7 +39,6 @@ const transform = computed(() => {
 text {
     font-size: 18px;
     text-anchor: middle;
-    font-family: sans-serif;
     cursor: pointer;
 }
 text:hover {
