@@ -4,24 +4,41 @@ import Building from "./svg/Building.vue";
 </script>
 
 <template>
-    <div>
+    <main>
         <Building class="building"></Building>
-        <div v-if="room !== null" class="controls">
-            <button @click="room = null">⤴️</button>
-        </div>
-        <div v-else-if="openFloor !== null" class="controls">
-            <button @click="openFloor = null">🏠</button>
-            <button @click="openFloor--" :disabled="openFloor === 0">⬇️</button>
-            <button @click="openFloor++" :disabled="openFloor === 4">⬆️</button>
-        </div>
-    </div>
+        <aside>
+            <h2>Guesthouse</h2>
+            <div v-if="room !== null" class="controls">
+                <button @click="room = null">⤴️</button>
+            </div>
+            <div v-else-if="openFloor !== null" class="controls">
+                <button @click="openFloor = null">🏠</button>
+                <button @click="openFloor--" :disabled="openFloor === 0">
+                    ⬇️
+                </button>
+                <button @click="openFloor++" :disabled="openFloor === 4">
+                    ⬆️
+                </button>
+            </div>
+        </aside>
+    </main>
 </template>
 
 <style scoped>
+main {
+    display: flex;
+}
 .building {
-    max-width: 800px;
     display: block;
-    margin: auto;
+    flex: 2;
+}
+aside {
+    flex: 1;
+}
+@media (max-width: 1000px) {
+    main {
+        flex-direction: column;
+    }
 }
 .controls {
     text-align: center;
