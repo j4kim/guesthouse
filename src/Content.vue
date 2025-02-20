@@ -5,13 +5,14 @@ import { openFloor, room } from "./store";
 const html = ref("Chargement...");
 
 async function getHtml(floor, room) {
-    var url = "content/fr/welcome.html";
+    var resource = "welcome";
     if (floor !== null && room === null) {
-        url = `content/fr/floor_${floor}.html`;
+        resource = `floors/${floor}`;
     } else if (room !== null) {
-        url = `content/fr/room_${room}.html`;
+        resource = `rooms/${room}`;
     }
-    const response = await fetch(url);
+    const lang = document.documentElement.lang;
+    const response = await fetch(`content/${lang}/${resource}.html`);
     if (!response.ok) {
         return "";
     }
