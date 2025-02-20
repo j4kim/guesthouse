@@ -25,6 +25,7 @@ const transform = computed(() => {
 
 <template>
     <text
+        class="btn"
         :x="x"
         :y="y"
         :style="{
@@ -37,11 +38,6 @@ const transform = computed(() => {
 
 <style scoped>
 text {
-    font-size: 18px;
     text-anchor: middle;
-    cursor: pointer;
-}
-text:hover {
-    opacity: 0.6;
 }
 </style>

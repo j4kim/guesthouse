@@ -13,16 +13,24 @@ import Building from "./svg/Building.vue";
                 l'illustration.
             </p>
             <div v-if="room !== null" class="controls">
-                <button @click="room = null">⤴️</button>
+                <div class="btn" @click="room = null">back</div>
             </div>
             <div v-else-if="openFloor !== null" class="controls">
-                <button @click="openFloor = null">🏠</button>
-                <button @click="openFloor--" :disabled="openFloor === 0">
-                    ⬇️
-                </button>
-                <button @click="openFloor++" :disabled="openFloor === 4">
-                    ⬆️
-                </button>
+                <div
+                    class="btn"
+                    @click="openFloor--"
+                    :disabled="openFloor === 0"
+                >
+                    ⬇ down
+                </div>
+                <div class="btn" @click="openFloor = null">back</div>
+                <div
+                    class="btn"
+                    @click="openFloor++"
+                    :disabled="openFloor === 4"
+                >
+                    ⬆ up
+                </div>
             </div>
         </aside>
     </main>
@@ -82,5 +90,27 @@ p,
 .title {
     margin-top: 0;
     margin-bottom: 1rem;
+}
+
+.btn {
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    transition: opacity 0.2s;
+    cursor: pointer;
+    display: inline-block;
+}
+div.btn {
+    border-bottom: 1px solid #3d4755;
+    padding-bottom: 4px;
+    margin: 0 8px;
+}
+.btn:hover {
+    opacity: 0.7;
+}
+.btn:disabled {
+    opacity: 0.4;
+    pointer-events: none;
 }
 </style>
