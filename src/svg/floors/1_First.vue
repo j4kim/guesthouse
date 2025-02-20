@@ -834,42 +834,42 @@ import Room101Front from "./1/Room101Front.vue";
         <Transition>
             <g v-if="room === 101">
                 <Arrow :x="850" :y="1380" @click="room = 'common'" north>
-                    ⬅ Common kitchen
+                    ← Common kitchen
                 </Arrow>
                 <Arrow :x="1230" :y="1420" @click="room = 104" west>
-                    Room 104 ⮕
+                    Room 104 →
                 </Arrow>
             </g>
             <g v-else-if="room === 'common'">
                 <Arrow :x="710" :y="1290" @click="room = 101" north>
-                    Room 101 ⮕
+                    Room 101 →
                 </Arrow>
                 <Arrow :x="620" :y="1270" @click="room = 102" north>
-                    ⬅ Room 102
+                    ← Room 102
                 </Arrow>
             </g>
             <g v-else-if="room === 102">
                 <Arrow :x="500" :y="1180" @click="room = 'common'" north>
-                    Common kitchen ⮕
+                    Common kitchen →
                 </Arrow>
                 <Arrow :x="590" :y="820" @click="room = 103" west stand>
-                    Room 103 ⮕
+                    Room 103 →
                 </Arrow>
             </g>
             <g v-else-if="room === 103">
                 <Arrow :x="1150" :y="750" @click="room = 104" north stand>
-                    Room 104 ⮕
+                    Room 104 →
                 </Arrow>
                 <Arrow :x="750" :y="730" @click="room = 102" west stand>
-                    ⬅ Room 102
+                    ← Room 102
                 </Arrow>
             </g>
             <g v-else-if="room === 104">
                 <Arrow :x="1400" :y="1320" @click="room = 101" west>
-                    ⬅ Room 101
+                    ← Room 101
                 </Arrow>
                 <Arrow :x="1450" :y="930" @click="room = 103" north stand>
-                    ⬅ Room 103
+                    ← Room 103
                 </Arrow>
             </g>
         </Transition>

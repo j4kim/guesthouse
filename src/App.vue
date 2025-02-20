@@ -18,7 +18,7 @@ import Building from "./svg/Building.vue";
                         :class="{ disabled: openFloor === 0 }"
                         @click="openFloor--"
                     >
-                        ⬇ down
+                        ↓ down
                     </div>
                     <div class="btn" @click="openFloor = null">back</div>
                     <div
@@ -26,7 +26,7 @@ import Building from "./svg/Building.vue";
                         :class="{ disabled: openFloor === 4 }"
                         @click="openFloor++"
                     >
-                        ⬆ up
+                        ↑ up
                     </div>
                 </template>
             </div>
