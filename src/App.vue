@@ -1,4 +1,5 @@
 <script setup>
+import Content from "./Content.vue";
 import { openFloor, room } from "./store";
 import Building from "./svg/Building.vue";
 </script>
@@ -7,11 +8,6 @@ import Building from "./svg/Building.vue";
     <main>
         <Building class="building"></Building>
         <aside>
-            <h2 class="title">Visite interactive</h2>
-            <p>
-                Commencez votre visite en cliquant sur un étage dans
-                l'illustration.
-            </p>
             <div v-if="room !== null" class="controls">
                 <div class="btn" @click="room = null">back</div>
             </div>
@@ -32,6 +28,7 @@ import Building from "./svg/Building.vue";
                     ⬆ up
                 </div>
             </div>
+            <Content></Content>
         </aside>
     </main>
 </template>
