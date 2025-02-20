@@ -8,25 +8,27 @@ import Building from "./svg/Building.vue";
     <main>
         <Building class="building"></Building>
         <aside>
-            <div v-if="room !== null" class="controls">
-                <div class="btn" @click="room = null">back</div>
-            </div>
-            <div v-else-if="openFloor !== null" class="controls">
-                <div
-                    class="btn"
-                    @click="openFloor--"
-                    :disabled="openFloor === 0"
-                >
-                    ⬇ down
-                </div>
-                <div class="btn" @click="openFloor = null">back</div>
-                <div
-                    class="btn"
-                    @click="openFloor++"
-                    :disabled="openFloor === 4"
-                >
-                    ⬆ up
-                </div>
+            <div class="controls">
+                <template v-if="room !== null">
+                    <div class="btn" @click="room = null">back</div>
+                </template>
+                <template v-else-if="openFloor !== null">
+                    <div
+                        class="btn"
+                        @click="openFloor--"
+                        :disabled="openFloor === 0"
+                    >
+                        ⬇ down
+                    </div>
+                    <div class="btn" @click="openFloor = null">back</div>
+                    <div
+                        class="btn"
+                        @click="openFloor++"
+                        :disabled="openFloor === 4"
+                    >
+                        ⬆ up
+                    </div>
+                </template>
             </div>
             <Content></Content>
         </aside>
@@ -56,7 +58,6 @@ main {
 
 .building {
     flex: 2;
-    max-height: 80vh;
 }
 
 aside {
@@ -67,24 +68,31 @@ aside {
     main {
         flex-direction: column;
     }
+    .building {
+        max-height: 75vh;
+    }
 }
 
 .controls {
     text-align: center;
+    min-height: 30px;
+    margin-bottom: 1em;
 }
 
 .controls button {
     font-size: 1.5rem;
 }
 
-.title {
+h1,
+h2 {
     font-family: "Alegreya", serif;
     font-weight: 400;
-    font-size: 2.5em;
+    font-size: 2em;
 }
 
 p,
-.title {
+h1,
+h2 {
     margin-top: 0;
     margin-bottom: 1rem;
 }
