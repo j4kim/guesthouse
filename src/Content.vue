@@ -4,20 +4,22 @@ import { openFloor, room } from "./store";
 
 const html = ref("Chargement...");
 
-watchEffect(async () => {
+async function getHtml(floor, room) {
     var url = "content/fr/welcome.html";
-    if (openFloor.value !== null && room.value === null) {
-        url = `content/fr/floor_${openFloor.value}.html`;
-    } else if (room.value !== null) {
-        url = `content/fr/room_${room.value}.html`;
+    if (floor !== null && room === null) {
+        url = `content/fr/floor_${floor}.html`;
+    } else if (room !== null) {
+        url = `content/fr/room_${room}.html`;
     }
     const response = await fetch(url);
     if (!response.ok) {
-        html.value = "";
-        return;
+        return "";
     }
-    const body = await response.text();
-    html.value = body;
+    return await response.text();
+}
+
+watchEffect(async () => {
+    html.value = await getHtml(openFloor.value, room.value);
 });
 </script>
 
