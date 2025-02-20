@@ -2,6 +2,7 @@
 import Content from "./Content.vue";
 import { openFloor, room } from "./store";
 import Building from "./svg/Building.vue";
+import { _ } from "./translate";
 </script>
 
 <template>
@@ -10,7 +11,7 @@ import Building from "./svg/Building.vue";
         <aside>
             <div class="controls">
                 <template v-if="room !== null">
-                    <div class="btn" @click="room = null">back</div>
+                    <div class="btn" @click="room = null">{{ _("back") }}</div>
                 </template>
                 <template v-else-if="openFloor !== null">
                     <div
@@ -18,15 +19,17 @@ import Building from "./svg/Building.vue";
                         :class="{ disabled: openFloor === 0 }"
                         @click="openFloor--"
                     >
-                        ↓ down
+                        ↓ {{ _("down") }}
                     </div>
-                    <div class="btn" @click="openFloor = null">back</div>
+                    <div class="btn" @click="openFloor = null">
+                        {{ _("back") }}
+                    </div>
                     <div
                         class="btn"
                         :class="{ disabled: openFloor === 4 }"
                         @click="openFloor++"
                     >
-                        ↑ up
+                        ↑ {{ _("up") }}
                     </div>
                 </template>
             </div>

@@ -1,6 +1,7 @@
 <script setup>
 import { reactive, ref, watchEffect } from "vue";
 import { openFloor, room } from "./store";
+import { lang } from "./translate";
 
 const html = ref("Chargement...");
 
@@ -14,8 +15,8 @@ async function fetchResource(url) {
     return await response.text();
 }
 
-async function getCached(lang, resource) {
-    const url = `content/${lang}/${resource}.html`;
+async function getCached(resource) {
+    const url = `content/${lang()}/${resource}.html`;
     if (!cache[url]) {
         cache[url] = await fetchResource(url);
     }
@@ -29,8 +30,7 @@ async function getHtml(floor, room) {
     } else if (room !== null) {
         resource = `rooms/${room}`;
     }
-    const lang = document.documentElement.lang;
-    return await getCached(lang, resource);
+    return await getCached(resource);
 }
 
 watchEffect(async () => {
