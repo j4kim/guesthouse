@@ -15,16 +15,16 @@ import Building from "./svg/Building.vue";
                 <template v-else-if="openFloor !== null">
                     <div
                         class="btn"
+                        :class="{ disabled: openFloor === 0 }"
                         @click="openFloor--"
-                        :disabled="openFloor === 0"
                     >
                         ⬇ down
                     </div>
                     <div class="btn" @click="openFloor = null">back</div>
                     <div
                         class="btn"
+                        :class="{ disabled: openFloor === 4 }"
                         @click="openFloor++"
-                        :disabled="openFloor === 4"
                     >
                         ⬆ up
                     </div>
@@ -114,7 +114,7 @@ div.btn {
 .btn:hover {
     opacity: 0.7;
 }
-.btn:disabled {
+.btn.disabled {
     opacity: 0.4;
     pointer-events: none;
 }
