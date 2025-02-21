@@ -41,3 +41,16 @@ watchEffect(async () => {
 <template>
     <div class="content" v-html="html"></div>
 </template>
+
+<style>
+.gallery {
+    display: flex;
+    max-width: 100%;
+    gap: 0.5em;
+}
+@media (min-width: 1000px) {
+    .gallery {
+        flex-direction: column;
+    }
+}
+</style>
