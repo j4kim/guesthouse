@@ -57,6 +57,7 @@ main {
     font-weight: 300;
     line-height: 1.5;
     color: #3d4755;
+    max-height: 640px;
 }
 
 .building {
@@ -65,11 +66,13 @@ main {
 
 aside {
     flex: 1;
+    overflow: auto;
 }
 
 @media (max-width: 1000px) {
     main {
         flex-direction: column;
+        max-height: none;
     }
     .building {
         max-height: 75vh;
